@@ -7,8 +7,24 @@ fetch('https://api.sleeper.app/v1/league/997862686069198848/rosters')
     return response.json(); // Parse the JSON data
   })
   .then(data => {
-    // You can work with the 'data' variable here
-    console.log(data); // Print the data to the console
+// Access the 'data' variable here
+    const table = document.getElementById('standings'); // Get the table element
+
+    // Loop through the data and create table rows and cells
+    data.forEach(team => {
+        const row = table.insertRow(); // Insert a new row
+
+        // Create table cells and populate with data
+        const nameCell = row.insertCell(0);
+        const winsCell = row.insertCell(1);
+        const lossesCell = row.insertCell(2);
+        const tiesCell = row.insertCell(3);
+
+        nameCell.innerHTML = team.teamName; // Replace with your data field name
+        winsCell.innerHTML = team.wins; // Replace with your data field name
+        lossesCell.innerHTML = team.losses; // Replace with your data field name
+        tiesCell.innerHTML = team.ties; // Replace with your data field name
+    });
   })
   .catch(error => {
     console.error('There was a problem with the fetch operation:', error);
