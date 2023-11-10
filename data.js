@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function () {
+
 // Make an HTTP GET request to your API endpoint
 fetch('https://api.sleeper.app/v1/league/997862686069198848/rosters')
   .then(response => {
@@ -29,3 +31,4 @@ fetch('https://api.sleeper.app/v1/league/997862686069198848/rosters')
   .catch(error => {
     console.error('There was a problem with the fetch operation:', error);
   });
+});
